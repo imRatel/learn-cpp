@@ -72,9 +72,9 @@ class ram {
 		ddr=(Level)l;
 	};
 	void showram (){
-		cout<<"My cpu volume is "<<volume<<"."<<endl;
-		cout<<"My cpu rate is "<<rate<<"."<<endl;	
-		cout<<"My cpu Levele is DDR"<<(int)ddr<<"."<<endl;
+		cout<<"My RAM volume is "<<volume<<"."<<endl;
+		cout<<"My RAM rate is "<<rate<<"."<<endl;	
+		cout<<"My RAM Levele is DDR"<<(int)ddr<<"."<<endl;
 	};
 	int getvolume (){
 		return volume;
@@ -96,6 +96,42 @@ class ram {
 		cout<<"RAM is stoping!\n";
 	};
 
+class rom{
+
+	int volume,rpm;
+	
+	public:
+
+	rom (int vol,int r):volume(vol),rpm(r){
+		cout<<"Make a rom!\n";
+	};
+	~rom(){
+		cout<<"Lose a rom!\n";
+	};
+	void setrom (int vol,int r){
+		volume=vol;
+		rpm=r;
+	};
+	void showrom (){
+		cout<<"My ROM volume is "<<volume<<"."<<endl;
+		cout<<"My ROM rpm is "<<rpm<<"."<<endl;	
+	};
+	int getvolume (){
+		return volume;
+	};
+	float getrpm (){
+		return rpm;
+	};
+	void stoprom ();
+	void runrom ();
+};
+	void rom::runrom (){
+		showrom();
+		cout<<"ROM is working!\n";
+	};
+	void rom::stoprom (){
+		cout<<"ROM is stoping!\n";
+	};
 
 int main()
 {
@@ -106,11 +142,16 @@ int main()
 	cpu mycpu(a,b,c);
 	mycpu.runcpu();
 	mycpu.stopcpu();
-	cout<<"Please enter RAM parameter.\n"<<"(volume rate ddrlevel)\n";
+	cout<<"Please enter RAM parameter.\n"<<"(volume rate DDRlevel)\n";
 	cin>>d>>b>>c;
 	ram myram(d,b,c);
 	myram.runram();
 	myram.stopram();
+	cout<<"Please enter ROM parometer.\n"<<"(volume rpm\n";
+	cin>>c>>d;
+	rom myrom(c,d);
+	myrom.runrom();
+	myrom.stoprom();
 	return 0;
 }
 
