@@ -133,25 +133,57 @@ class rom{
 		cout<<"ROM is stoping!\n";
 	};
 
+class computer {
+	cpu c;
+	ram r;
+	rom o;
+	
+	public:
+
+	computer (cpu cc,ram rc,rom oc):c(cc),r(rc),o(oc){
+		cout<<"MAKE a computer!\n";
+	};
+	~computer (){
+		cout<<"LOSE a computer!\n";
+	};
+	void showcomputer (){
+		c.showcpu();
+		r.showram();
+		o.showrom();
+	};
+	void runcomputer (){
+		showcomputer();
+		cout<<"Computer is working!\n";
+	};
+	void stopcomputer (){
+		cout<<"Computer is stoping!\n";
+	};	
+};
+
+
 int main()
 {
-	float a,b;
-	int c,d;
+	float cpuvol,cpurate,ramrate;
+	int cpule,ramle,romrpm,ramvol,romvol;
 	cout<<"Please enter CPU parameter.\n"<<"(voltage rate Level)\n";
-	cin>>a>>b>>c;
-	cpu mycpu(a,b,c);
+	cin>>cpuvol>>cpurate>>cpule;
+	cpu mycpu(cpuvol,cpurate,cpule);
 	mycpu.runcpu();
 	mycpu.stopcpu();
 	cout<<"Please enter RAM parameter.\n"<<"(volume rate DDRlevel)\n";
-	cin>>d>>b>>c;
-	ram myram(d,b,c);
+	cin>>ramvol>>ramrate>>ramle;
+	ram myram(ramvol,ramrate,ramle);
 	myram.runram();
 	myram.stopram();
-	cout<<"Please enter ROM parometer.\n"<<"(volume rpm\n";
-	cin>>c>>d;
-	rom myrom(c,d);
+	cout<<"Please enter ROM parometer.\n"<<"(volume rpm\n)";
+	cin>>romvol>>romrpm;
+	rom myrom(romvol,romrpm);
 	myrom.runrom();
 	myrom.stoprom();
+	cout<<"Computer ready!";
+	computer mycomputer(mycpu,myram,myrom);
+	mycomputer.runcomputer();
+	mycomputer.stopcomputer();
 	return 0;
 }
 
