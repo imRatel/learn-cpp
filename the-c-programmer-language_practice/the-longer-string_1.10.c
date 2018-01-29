@@ -2,22 +2,23 @@
 #include <math.h>
 #define MAXLINE 1000
 
+char line[MAXLINE];
 //一个判定当前输入行的长度,并存储最大行和长度的程序
-int getline (char line[],int maxline);
-void copyline (char to[],char from[]);
+int getline (int maxline);
+void copyline (char to[]);
 
 int main ()
 {
 	int lin,max;								//lin为当前输入行的长度,max为当前最长行的长度
-	char line[MAXLINE],longerlin[MAXLINE];		//line为当前输入的字符串,longerlin为当前最长的字符串
+	char longerlin[MAXLINE];		//line为当前输入的字符串,longerlin为当前最长的字符串
 	
 	lin=max=0;
-	while ((lin=getline(line,MAXLINE))>0)		//如果当前输入行的长度小于零,判断是否大于最大行,是存储最大行并循环
+	while ((lin=getline(MAXLINE))>0)		//如果当前输入行的长度小于零,判断是否大于最大行,是存储最大行并循环
 	{											//否则,继续循环
 		if (lin>max)
 		{
 			max=lin;
-			copyline(longerlin,line);
+			copyline(longerlin);
 		}
 	}
 	if (max>0)									//当跳出上面的输入循环,判断最大是否大于零,是则打印最大行字符串
@@ -30,7 +31,7 @@ int main ()
 }
 
 //输入字符串并记录输入次数,最后返回输入次数
-int getline (char line[],int maxline)
+int getline (int maxline)
 {
 	int i,ch,max;
 
@@ -62,10 +63,10 @@ int getline (char line[],int maxline)
 }
 
 //存储字符串
-void copyline (char to[],char from[])
+void copyline (char to[])
 {
 	int i;
 	
-	for (i=0; (to[i]=from[i]) != '\0'; ++i)
+	for (i=0; (to[i]=line[i]) != '\0'; ++i)
 		;
 }
