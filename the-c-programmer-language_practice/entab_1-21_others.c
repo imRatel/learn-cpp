@@ -6,11 +6,12 @@
  ************************************************************************/
 
 #include<stdio.h>
-#define MAX 1000
-#define wide 144
-#define w_t 8
-#define N 24
+#define MAX 1000	//最大输入
+#define wide 144	//页面宽度
+#define w_t 8		//制表符宽度
+#define N 24		//终止位
 
+//把空格换成最少数量的制表符和空格,使制表符和空格充满到下一个制表符终止位的地方.
 int main ()
 {
 	int a,n_s,n_t,n_ch,i,ch;
