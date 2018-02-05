@@ -10,22 +10,26 @@
 #define wide 144	//页面宽度
 #define w_t 8		//制表符宽度
 #define N 24		//终止位
+#define IN 1
+#define OUT 0
 
 //把空格换成最少数量的制表符和空格,使制表符和空格充满到下一个制表符终止位的地方.
 int main ()
 {
-	int a,n_s,n_t,n_ch,i,ch;
+	int a,n_s,n_t,n_ch,i,ch,state;
 	char line[MAX];
-	a = n_s = n_t = n_ch = i = ch = 0;
+	a = n_s = n_t = n_ch = i = ch = state = 0;
 
 	while ((ch = getchar()) != EOF)
 	{
 		if (ch == ' ')
 		{
+			if (state == OUT)
 			++n_s;
 			
-			if (n_s + n_ch == w_t)
+			if (n_s + n_ch == w_t && state == OUT)
 			{
+				state = IN;
 				n_s = 0;
 				if (N > a)
 				{
@@ -47,6 +51,7 @@ int main ()
 					line[i] = '\t';
 					--n_t;
 					++i;
+					n_s = 0;
 				}
 			}
 		}
@@ -60,11 +65,14 @@ int main ()
 				++a;
 				++n_ch;
 			}
-
+			
+			state = OUT;
 			line[i] = ch;
 			++i;
 			++n_ch;
 			++a;
+			if (ch == '\t')
+				a += 3;
 			
 			if (ch == '\n')
 			{
@@ -74,7 +82,6 @@ int main ()
 			else if (n_ch == w_t)
 				n_ch = 0;
 		}
-		++a;
 	}
 	line[i] = '\0';
 	printf("%s",line);
