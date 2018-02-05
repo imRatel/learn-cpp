@@ -17,6 +17,7 @@ int main ()
 		{
 			printf("%d",i);
 		}
+		++a;
 	}
 	getchar();
 	return 0;
