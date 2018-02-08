@@ -16,15 +16,21 @@
 #define s_quote 5 //单引号
 #define notes 6 //注释符号
 #define ASC 7 //ASC转义符号
-int control[MAX],a,i,d_s,s_s; //d_s为double state双引号状态,s_s为single state单引号状态
-char error[MAX];
+int control[MAX]; 
+char error[MAX][MAX];
+int n_l,n_e;
+int a,i;
+int d_s,s_s;	//d_s为double state双引号状态,s_s为single state单引号状态
 
 void back_error ()
 {
-
+	if (control[a-1] == brace)
+	{
+		error[n_e] = "error"//改进行记录行号,建议用数组形式记录
+	}
 }
 
-void judge_ASC ()
+void judge_ASC (char now)
 {
 
 }
@@ -77,22 +83,23 @@ int main ()
 {
 	int ch;
 	char line[MAX];
-	ch = i = a = 0;
+	d_s = s_s = OUT;
+	ch = i = a = n_l = n_e = 0;
 	while ((ch = getchar()) != EOF)
 	{
 		line[i] = ch;
-		if (ch == '\"')
+		if (ch == '\"'&& d_s == OUT)
 		{
 			d_s = IN;
 		}
-		else if(ch == '\'')
+		else if(ch == '\'' && s_s ==OUT)
 		{
 			s_s = IN;
 		}
 		else if (d_s == IN || s_s == IN)
 		{
 			if (line[i-1] == '\\')
-				judge_ASC();
+				judge_ASC(line[i]);
 			else if (ch == '\"')
 			{
 				d_s = OUT;
