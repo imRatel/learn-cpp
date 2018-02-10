@@ -16,18 +16,41 @@
 #define s_quote 5 //单引号
 #define notes 6 //注释符号
 #define ASC 7 //ASC转义符号
-int control[MAX]; 
+int control[MAX],error_line[MAX]; 
 char error[MAX][MAX];
 int n_l,n_e;
-int a,i;
+int a,i,x;
 int d_s,s_s;	//d_s为double state双引号状态,s_s为single state单引号状态
 
 void back_error ()
 {
+	error_line[x] = n_l;
+	++x;
 	if (control[a-1] == brace)
 	{
-		error[n_e] = "error"//改进行记录行号,建议用数组形式记录
+		error[n_e] = "error:brace";
 	}
+	else if (control[a-1] == bracket)
+	{
+		error[n_e] = "error:bracket";
+	}
+	else if (control[a-1] == parenthesis)
+	{
+		error[n_e] = "error:parenthesis";
+	}
+	else if (control[a-1] == d_quote)
+	{
+		error[n_e] = "error:double quote";
+	}
+	else if (control[a-1] == s_quote)
+	{
+		error[n_e] = "error:single quote";
+	}
+	else if (control[a-1] == notes)
+	{
+		error[n_e] = "error:notes";
+	}
+	--a;
 }
 
 void judge_ASC (char now)
@@ -84,9 +107,13 @@ int main ()
 	int ch;
 	char line[MAX];
 	d_s = s_s = OUT;
-	ch = i = a = n_l = n_e = 0;
+	ch = i = a = x = n_l = n_e = 0;
 	while ((ch = getchar()) != EOF)
 	{
+		if (ch == '\t')
+		{
+			++n_l;
+		}
 		line[i] = ch;
 		if (ch == '\"'&& d_s == OUT)
 		{
@@ -116,4 +143,7 @@ int main ()
 		}
 	}
 	back_error();
+	line[i] = '\0';
+	prentf("%s\n%s%d",line,error,error_line);
+	return 0;
 }
