@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "squeeze_2-4", "squeeze_2-4\squeeze_2-4.vcxproj", "{903576B9-7A63-40D1-8DA9-1300B5F57C15}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "practice_2-4_2-5", "squeeze_2-4\squeeze_2-4.vcxproj", "{903576B9-7A63-40D1-8DA9-1300B5F57C15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
