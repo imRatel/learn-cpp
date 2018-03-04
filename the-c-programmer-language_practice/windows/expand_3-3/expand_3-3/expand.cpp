@@ -5,9 +5,12 @@
 #define a_A 2  //左小右大
 #define SAME 3  //左右相同
 #define NUM 4 //是数字
-int is_A_or_a_or_i(char ch) //判断是否是合法字符
+int is_A_or_a_or_i(char ch1, char ch2) //判断是否是合法字符
 {
-	return ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z' || ch >= '0' && ch <= '9';
+	int rt = 0;
+	rt = ((ch1 >= 'a' && ch1 <= 'z' || ch1 >= 'A' && ch1 <= 'Z' || ch1 >= '0' && ch1 <= '9') && (ch2 >= 'a' && ch2 <= 'z' || ch2 >= 'A' && ch2 <= 'Z' || ch2 >= '0' && ch2 <= '9') 
+		&& !(ch1 == 'z' && ch2 == 'A') && !(ch1 == 'Z' && ch2 == 'a') && (ch1+1 != ch2) && (ch1-1 != ch2));
+	return rt;
 }
 
 int LandR(char ch1, char ch2)  //判断左右字符大小写,数字
@@ -40,6 +43,10 @@ int replace(char s[], char ch1, char ch2, int k)  //替换速记符号并返回字符串下标
 			s[k++] = ch1 - n;
 		}
 	}
+	else if (ch1 = ch2)
+	{
+		s[k++] = ch1;
+	}
 	return k-1;
 }
 
@@ -60,9 +67,9 @@ void expand(char s1[], char s2[])
 		{
 			for (n = INI; (s1[i - n] != '-' || s1[i + n] != '-') && n != END; --n)
 				;
-			if (!n && is_A_or_a_or_i(s1[i - 1]) && is_A_or_a_or_i(s1[i + 1]) && ((s1[i - 1] + 1) != s1[i + 1]))
+			if (!n && is_A_or_a_or_i(s1[i - 1],s1[i + 1]))
 			{
-				switch (LandR(s1[i - 1], line[i + 1]))
+				switch (LandR(s1[i - 1], s1[i + 1]))
 				{
 				case SAME:
 					k = replace(line, s1[i - 1], s1[i + 1], k);
@@ -87,7 +94,7 @@ void expand(char s1[], char s2[])
 	}
 	line[k] = '\0';
 
-	for (int x = k - 4; x >= 0; x--)
+	for (int x = k - 4; x >= 0; x--,k--)
 	{
 		s2[x] = line[k];
 	}
