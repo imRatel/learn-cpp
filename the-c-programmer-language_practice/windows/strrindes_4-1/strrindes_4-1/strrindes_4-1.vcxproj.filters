@@ -15,16 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="itob.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="reverse.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="itoa.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="strlen.cpp">
+    <ClCompile Include="strrindes.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">

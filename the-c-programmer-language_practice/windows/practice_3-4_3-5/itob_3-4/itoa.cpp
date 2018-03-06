@@ -48,7 +48,7 @@ void itoa(int n, char s[], int w)  //练习3-4和3-6的结合版
 	s[i] = '\0';
 	reverse(s);  //把数字反转
 
-	if (sign < 3)  //判断是否小于设定宽度
-		smover(s, 3 - sign);
+	if (sign < w)  //判断是否小于设定宽度
+		smover(s, w - sign);
 
 }

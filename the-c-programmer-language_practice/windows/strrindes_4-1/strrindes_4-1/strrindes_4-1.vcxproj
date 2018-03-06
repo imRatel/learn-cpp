@@ -20,10 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{F8E17FF1-1683-4039-AE52-E0D354E19ACB}</ProjectGuid>
-    <RootNamespace>itob34</RootNamespace>
+    <ProjectGuid>{8EB654AB-7F27-470D-8623-3E674A471815}</ProjectGuid>
+    <RootNamespace>strrindes41</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
-    <ProjectName>practice_3-4_3-5</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -116,11 +115,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="itoa.cpp" />
-    <ClCompile Include="itob.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="reverse.cpp" />
-    <ClCompile Include="strlen.cpp" />
+    <ClCompile Include="strrindes.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
