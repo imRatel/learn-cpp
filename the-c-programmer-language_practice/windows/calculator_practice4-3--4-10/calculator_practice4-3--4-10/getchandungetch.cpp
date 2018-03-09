@@ -1,21 +1,18 @@
 #include <stdio.h>
 
-#define FULL 1
-#define EMPTY 0
+#define FULL 1		//表示状态满
+#define EMPTY 0		//表示状态空
 
-int ch = EMPTY;
-int s_getch = EMPTY;
+int next_char = EMPTY;  //多出来的字符
+int s_getch = EMPTY;	//next_char的状态
 
-int getch()
+int getch()			//获取字符,如果上次获取时有多余的字符,则先返回上次多余的
 {
 	switch (s_getch)
 	{
 	case FULL:
 		s_getch = EMPTY;
-		if (ch == EOF)
-			return ch;
-		else
-			return (char)ch; 
+		return next_char;
 		break;
 	case EMPTY:
 		return getchar();
@@ -23,7 +20,7 @@ int getch()
 	}
 }
 
-void ungetch(int c)
+void ungetch(int ch)	//储存多余的字符,如果仓库已满则报错
 {
 	switch (s_getch)
 	{
@@ -31,7 +28,7 @@ void ungetch(int c)
 		printf("ungetch : too many char!");
 		break;
 	case EMPTY:
-		ch = c;
+		next_char = ch;
 		s_getch = FULL;
 		break;
 	}
