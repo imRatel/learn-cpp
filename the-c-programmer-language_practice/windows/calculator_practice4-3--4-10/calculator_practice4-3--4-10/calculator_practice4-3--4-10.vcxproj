@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="getchandungetch.cpp" />
+    <ClCompile Include="getline.cpp" />
     <ClCompile Include="getop.cpp" />
     <ClCompile Include="iscommand.cpp" />
     <ClCompile Include="linecmp.cpp" />

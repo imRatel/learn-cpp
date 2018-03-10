@@ -8,8 +8,8 @@
 #define ASSIGNMENT 3//标记为赋值
 #define VARIABLE 'a'//标记为变量
 
-int getch();
-void ungetch(int ch);
+int getch(char line[]);				//获取一个字符
+void ungetch(int ch);		//压回一个字符
 
 int isnumsign(int ch)	//判断是否为算数操作符号(+,-,*,/,%)
 {
@@ -19,12 +19,12 @@ int isnumsign(int ch)	//判断是否为算数操作符号(+,-,*,/,%)
 		return 0;
 }
 
-int  getop(char s[])	//获取一个操作符
+int  getop(char s[], char line[])	//获取一个操作符
 {
 	int i, ch;
 	i = ch = 0;
 
-	while ((s[0] = ch = getch()) == ' ' || ch == '\t')	//跳过空格符
+	while ((s[0] = ch = getch(line)) == ' ' || ch == '\t')	//跳过空格符
 		;
 	
 	s[1] = '\0';
@@ -36,7 +36,7 @@ int  getop(char s[])	//获取一个操作符
 	
 	if (ch == '=')	//当前符号为等号时,判断是否为赋值运算,如是返回赋值标记,否则返回错误信息		s[0]为该变量的名字
 	{
-		while (isalpha(s[i++] = ch = getch()))	//覆盖等号
+		while (isalpha(s[i++] = ch = getch(line)))	//覆盖等号
 			;
 
 		if (i > 2)
@@ -52,7 +52,7 @@ int  getop(char s[])	//获取一个操作符
 
 	if (isalpha(ch))	//为命令是记录命令并返回命令标记
 	{
-		while (isalpha(s[++i] = ch = getch()))
+		while (isalpha(s[++i] = ch = getch(line)) && i < 20)
 			;
 
 		if (i <= 2 && isalpha(s[i-1]))	//为变量返回变量标记	s[0]为该变量的名字
@@ -69,11 +69,11 @@ int  getop(char s[])	//获取一个操作符
 
 	if (isdigit(ch))	//为数字时记录数字并返回数字标记
 	{
-		while (isdigit(s[++i] = ch = getch()))
+		while (isdigit(s[++i] = ch = getch(line)))
 			;
 
 		if (ch == '.')
-			while (isdigit(s[++i] = ch = getch()));
+			while (isdigit(s[++i] = ch = getch(line)));
 
 		s[i] = '\0';
 		ungetch(ch);

@@ -23,21 +23,27 @@
 #define POW 11				//次方函数
 #define FABS 12				//绝对值函数
 
-int  getop(char s[]);	//获取操作符
+int  getop(char s[],char line[]);	//获取操作符
 void push(double f);	//把当前数字压入堆栈
 double pop();			//提取一个堆栈值
 int iscommand(char s[]);//判断是什么命令
 int linecmp(char s1[], char s2[]);	//判断两个字符串是否相等		!!注意!!此函数跳过字符串开头的非字母字符
+void getline(char line[]);	//获取一个行
+
+int n_line = 0;			//最大输入行的计数
 
 int main()	//逆波兰计算器
 {
 	int type;	//储存相对应的操作类型
 	double op2,op3;	//临时存放操作
 	char s[MAXOP];			//储存输入的操作
-	int var[MAXOP + 'z'];	//储存变量
+	double var[MAXOP + 'z'];	//储存变量
 	double last = 0.0;			//上一次打印的值
+	char line[MAXOP];		//最大输入行
+	
+	getline(line);
 
-	while ((type = getop(s)) != EOF)
+	while ((type = getop(s,line)) != EOF)
 	{
 		switch (type)
 		{
