@@ -117,6 +117,8 @@
   <ItemGroup>
     <ClCompile Include="getchandungetch.cpp" />
     <ClCompile Include="getop.cpp" />
+    <ClCompile Include="iscommand.cpp" />
+    <ClCompile Include="linecmp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pushandpop.cpp" />
   </ItemGroup>

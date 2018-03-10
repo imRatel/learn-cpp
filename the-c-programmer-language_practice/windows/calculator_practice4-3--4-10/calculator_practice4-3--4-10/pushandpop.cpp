@@ -12,7 +12,7 @@ void push(double f) //把当前数字压入堆栈,如果溢出,返回错误信息
 		val[n_val++] = f;
 	}
 	else
-		printf("error:The val is already full!");
+		printf("\nerror:The val is already full!\n");
 }
 
 double pop() //取出堆栈最上面的数字,当堆栈空时返回0.0,并警告提示
@@ -23,7 +23,7 @@ double pop() //取出堆栈最上面的数字,当堆栈空时返回0.0,并警告提示
 	}
 	else
 	{
-		printf("waring:The val is empy!");
+		printf("\nwaring:The val is empy!");
 		return 0.0;
 	}
 }
