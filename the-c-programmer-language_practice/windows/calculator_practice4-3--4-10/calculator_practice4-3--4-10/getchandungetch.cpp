@@ -1,7 +1,5 @@
 #include <stdio.h>
-
-#define FULL 1		//±íÊ¾×´Ì¬Âú
-#define EMPTY 0		//±íÊ¾×´Ì¬¿Õ
+#include <calculatorlib.h>
 
 int next_char = EMPTY;  //¶à³öÀ´µÄ×Ö·û
 int s_getch = EMPTY;	//next_charµÄ×´Ì¬
@@ -19,7 +17,7 @@ int getch(char line[])			//»ñÈ¡×Ö·û,Èç¹ûÉÏ´Î»ñÈ¡Ê±ÓĞ¶àÓàµÄ×Ö·û,ÔòÏÈ·µ»ØÉÏ´Î¶àÓàµ
 		return line[n_line++];
 }
 
-void ungetch(int ch)	//´¢´æ¶àÓàµÄ×Ö·û,Èç¹û²Ö¿âÒÑÂúÔò±¨´í
+/*void ungetch(int ch)	//´¢´æ¶àÓàµÄ×Ö·û,Èç¹û²Ö¿âÒÑÂúÔò±¨´í
 {
 	switch (s_getch)
 	{
@@ -31,6 +29,6 @@ void ungetch(int ch)	//´¢´æ¶àÓàµÄ×Ö·û,Èç¹û²Ö¿âÒÑÂúÔò±¨´í
 		s_getch = FULL;
 		break;
 	}
-}
+}*/
 
 

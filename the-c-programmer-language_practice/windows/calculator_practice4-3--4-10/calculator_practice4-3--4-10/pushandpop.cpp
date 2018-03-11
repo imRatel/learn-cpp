@@ -1,9 +1,8 @@
 #include <stdio.h>
+#include <calculatorlib.h>
 
-#define MAXVAL 100
-
-int n_val = 0; //堆栈当前数目
-double val[MAXVAL]; //堆栈,最大数目为100
+static int n_val = 0; //堆栈当前数目
+static double val[MAXVAL]; //堆栈,最大数目为100
 
 void push(double f) //把当前数字压入堆栈,如果溢出,返回错误信息
 {

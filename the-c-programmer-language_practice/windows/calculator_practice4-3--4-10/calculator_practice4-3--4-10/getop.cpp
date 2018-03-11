@@ -1,15 +1,11 @@
 #include <stdio.h>
 #include <ctype.h>
-
-#define MAXLAN 100	//操作符最大长度
-#define NUMBER '0'	//标记为数字
-#define COMMAND 1	//标记为命令
-#define ERROR 2		//标记为错误
-#define ASSIGNMENT 3//标记为赋值
-#define VARIABLE 'a'//标记为变量
+#include <calculatorlib.h>
 
 int getch(char line[]);				//获取一个字符
-void ungetch(int ch);		//压回一个字符
+
+extern int next_char;	 //多出来的字符 #getch函数
+extern int s_getch;		//next_char的状态 #getch函数
 
 int isnumsign(int ch)	//判断是否为算数操作符号(+,-,*,/,%)
 {
@@ -46,7 +42,8 @@ int  getop(char s[], char line[])	//获取一个操作符
 		}
 
 		s[1] = '\0';
-		ungetch(ch);
+		next_char = ch;
+		s_getch = FULL;
 		return ASSIGNMENT;
 	}
 
@@ -58,12 +55,14 @@ int  getop(char s[], char line[])	//获取一个操作符
 		if (i <= 2 && isalpha(s[i-1]))	//为变量返回变量标记	s[0]为该变量的名字
 		{
 			s[1] = '\0';
-			ungetch(ch);
+			next_char = ch;
+			s_getch = FULL;
 			return VARIABLE;
 		}
 
 		s[i] = '\0';
-		ungetch(ch);
+		next_char = ch;
+		s_getch = FULL;
 		return COMMAND;
 	}
 
@@ -76,7 +75,8 @@ int  getop(char s[], char line[])	//获取一个操作符
 			while (isdigit(s[++i] = ch = getch(line)));
 
 		s[i] = '\0';
-		ungetch(ch);
+		next_char = ch;
+		s_getch = FULL;
 		return NUMBER;
 	}
 

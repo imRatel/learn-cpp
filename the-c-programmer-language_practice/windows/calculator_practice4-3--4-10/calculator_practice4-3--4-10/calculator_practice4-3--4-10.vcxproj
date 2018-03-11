@@ -84,6 +84,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\92079\source\repos\learn-cpp\the-c-programmer-language_practice\windows\calculator_practice4-3--4-10\calculator_practice4-3--4-10;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -122,6 +123,9 @@
     <ClCompile Include="linecmp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pushandpop.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="calculatorlib.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
