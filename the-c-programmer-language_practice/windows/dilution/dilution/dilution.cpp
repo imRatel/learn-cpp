@@ -14,16 +14,16 @@ static int valve[VALVENUM] = { 1,2,3,5,10,15,25 };	//各个移液管的容积
 int dilution(double concentration, int n = 0)
 {
 	int state;
-	if (concentration > 5.0 && concentration < 15.0)
+	if (concentration > 5.0 && concentration < 15.0) //如果得到结果为范围内返回第一次成功
 		return FIRST;
-	else if (n <= MAXTEST)
+	else if (n <= MAXTEST) //判断稀释次数是否小于最大稀释次数
 	{
-		for (int i_VAL = 0; i_VAL < VALVENUM; i_VAL++)
+		for (int i_VAL = 0; i_VAL < VALVENUM; i_VAL++) //测试容量瓶
 		{
-			for (int i_BOT = 0; i_BOT < BOTTLENUM ;i_BOT++)
+			for (int i_BOT = 0; i_BOT < BOTTLENUM ;i_BOT++)	//测试移液管
 			{
-				double now_con = concentration / valve[i_VAL] * bottle[i_BOT];
-				state = dilution(now_con, n + 1);
+				double now_con = concentration / valve[i_VAL] * bottle[i_BOT]; //获得的状态,并进行下一次稀释
+				state = dilution(now_con, n + 1); //当前稀释浓度
 				if (state == FIRST)
 				{
 					if (i_VAL != 0 || i_BOT > 5)
