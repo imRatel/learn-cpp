@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <calculatorlib.h>
+#include "calculatorlib.h"
 
 int next_char = EMPTY;  //多出来的字符
 int s_getch = EMPTY;	//next_char的状态

@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <math.h>
 #include <string.h>
-#include <calculatorlib.h>
+#include "calculatorlib.h"
 
 int n_line = 0;			//最大输入行的计数
 

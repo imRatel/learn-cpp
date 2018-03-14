@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-#include <calculatorlib.h>
+#include "calculatorlib.h"
 
 int getch(char line[]);				//获取一个字符
 
