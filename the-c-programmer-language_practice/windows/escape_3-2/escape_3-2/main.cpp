@@ -1,9 +1,9 @@
 #include <stdio.h>
 #define MAX 100
 
-void escape(char s[], char t[]);
-void escape_opposite(char s[], char t[]);
-void getline(char line[]);
+void escape(char *s, char *t);
+void escape_opposite(char *s, char *t);
+void getline(char *line);
 
 int main()
 {

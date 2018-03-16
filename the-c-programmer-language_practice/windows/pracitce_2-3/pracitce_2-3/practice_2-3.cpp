@@ -1,69 +1,62 @@
 #include <stdio.h>
+
 #define MAX 1000
 #define IN 1
 #define OUT 0
 
 int main()
 {
-	int first = IN;
 	int state = OUT;
 	int num[MAX];
-	char line[MAX];
-	int ch, i, x, control, number;
-	for (x = MAX-1; x >= 0; x--)
-	{
-		num[x] = 0;
-	}
-	ch = i = x = control = number = 0;
+	int ch, i, number;
+	ch = i = number = 0;
 
-	while ((ch = getchar()) != '\n' && ch != '`')
+	while ((ch = getchar()) != '\n' && ch != EOF)
 	{
+		if ((ch == 'x' || ch == 'X') && *(num + i) == '0')
+		{
+			state = IN;
+			i = 0;
+		}
+
 		if (state == IN)
 		{
 			if (ch >= '0' && ch <= '9' || ch >= 'a' && ch <= 'f' || ch >= 'A' && ch <= 'F')
 			{
-				if (first == OUT)
-				{
-					for (x = control; x >= 0; x--)
-					{
-						num[x] *= 16;
-					}
-					control++;
-				}
-				else
-					first = OUT;
-
 				if (ch >= '0' && ch <= '9')
-					num[control] = ch - '0';
+				{
+					*(num + i) = ch - '0';
+				}
 				else if (ch >= 'a' && ch <= 'f')
-					num[control] = ch - 'a' + 9;
+				{
+					*(num + i) = ch - 'a' + 10;
+				}
 				else if (ch >= 'A' && ch <= 'F')
-					num[control] = ch - 'A' + 9;
-
-				line[i] = ch;
-				++i;
+				{
+					*(num + i) = ch - 'A' + 10;
+				}
+				i = i + 1;
 			}
 		}
-		else if ((ch == 'x' || ch == 'X') && line[i] == '0')
-		{
-			state = IN;
-			++i;
-			line[i] = ch;
-			++i;
-		}
 		else
-			line[i] = ch;
+		{
+			*(num + i) = ch;
+		}
+	}
+	i = i - 1;	//为了消除i自增1带来的冗余
+
+	if (i <= 0)
+	{
+		printf("error :wrong number");
+		return 0;
 	}
 
-	while (control >= 0)
+	while (i >= 0)
 	{
-		number += num[control];
-		control--;
+		number = number * 16 + *(num + i) ;
+		i = i - 1;
 	}
-	line[i] = '\0';
-	if (i <= 3)
-		printf("error :wrong number");
-	else
-		printf("%s = %d", line, number);
+	printf("resule = %x", number);
+
 	return 0;
 }
