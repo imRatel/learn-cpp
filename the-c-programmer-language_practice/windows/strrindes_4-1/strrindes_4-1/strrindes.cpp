@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 
-int strrindes(char s[], char t[])
+int strrindes(char *s, char *t)
 {
-	int n_s, n_t;
-	n_s = n_t = 0;
+	int p_s, p_t;
+	p_s = p_t = 0;
 
-	for (n_s = strlen(s) - 1; n_s >= 0; n_s--)
+	for (p_s = strlen(s) - 1; p_s >= 0; p_s--)
 	{
-		for (n_t = strlen(t) - 1; s[n_s] == t[n_t]; n_t--, n_s--)
+		for (p_t = strlen(t) - 1; *(s + p_s) == *(t + p_t); p_t--, p_s--)
 			;
-		if (n_t < 0)
-			return (n_s += 2);
+		if (p_t < 0)
+			return (p_s += 2);
 	}
 	return -1;
 

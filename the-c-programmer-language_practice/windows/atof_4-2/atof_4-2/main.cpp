@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define MAX 1000
 
-double atof(char s[]);
+double atof(char *s);
 
 int main()
 {
