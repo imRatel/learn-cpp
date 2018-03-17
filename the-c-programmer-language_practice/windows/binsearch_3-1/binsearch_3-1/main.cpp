@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define MAX 100
 
-int binsearch(int x, int v[], int n);
+int binsearch(int x, int *v, int n);
 
 int main()
 {

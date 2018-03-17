@@ -1,23 +1,26 @@
 #include <stdio.h>
 
-void reverse(char s[]); 
-int strlen(char s[]); 
+void reverse(char *s); 
+int strlen(char *s); 
 
-void smover(char s[], int n)  //把字符串向右移n为移动的次数,左边空出来的用空格填满
+void smover(char *s, int n)  //把字符串向右移n为移动的次数,左边空出来的用空格填满
 {
 	int now;
-	now = strlen(s) + 1;
+	now = strlen(s);
 
-	for (int i = now + n; i > 0; --i)
+	for (int i = now + n; i >= 0; --i)
 	{
-		if (i > n)
-			s[i - 1] = s[--now];
+		if (i >= n)
+		{
+			*(s + i) = *(s + now);
+			now = now - 1;
+		}
 		else
-			s[i - 1] = ' ';
+			*(s + i) = ' ';
 	}
 }
 
-void itoa(int n, char s[], int w)  //练习3-4和3-6的结合版
+void itoa(int n, char *s, int w)  //练习3-4和3-6的结合版
 {
 	int i,sign;
 	unsigned n_c;
@@ -37,15 +40,19 @@ void itoa(int n, char s[], int w)  //练习3-4和3-6的结合版
 
 	do                   //把数字转换为字符串形式,与数字顺序是反的
 	{
-		s[i++] = n_c % 10 + '0';
+		*(s + i) = n_c % 10 + '0';
+		i = i + 1;
 		n_c /= 10;
 		++sign;
 	} while (n_c > 0);
 
 	if (n < 0)
-	s[i++] = '-';
+	{
+		*(s + i) = '-';
+		i = i + 1;
+	}
 
-	s[i] = '\0';
+	*(s + i) = '\0';
 	reverse(s);  //把数字反转
 
 	if (sign < w)  //判断是否小于设定宽度

@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-int strlen(char s[]);
+int strlen(char *s);
 
-void reverse(char s[]) //反转字符串
+void reverse(char *s) //反转字符串
 {
 	int c, i, j;
 	for (i = 0, j = strlen(s) - 1; i < j; i++, j--)
 	{
-		c = s[i];
-		s[i] = s[j];
-		s[j] = c;
+		c = *(s + i);
+		*(s + i) = *(s + j);
+		*(s + j) = c;
 	}
 }
 

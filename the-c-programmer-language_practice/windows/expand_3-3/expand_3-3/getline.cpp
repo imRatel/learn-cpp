@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-void getline(char line[])
+void getline(char *line)
 {
 	int i, ch;
 	i = ch = 0;
-	while ((ch = getchar()) != '`')
+	while ((ch = getchar()) != EOF)
 	{
-		line[i] = ch;
+		*(line + i) = ch;
 		++i;
 	}
 
-	line[i] = '\0';
+	*(line + i) = '\0';
 }

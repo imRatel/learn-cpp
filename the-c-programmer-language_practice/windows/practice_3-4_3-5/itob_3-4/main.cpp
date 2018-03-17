@@ -1,10 +1,10 @@
 #include <stdio.h>
 #define MAX 1000
 
-void itob(int n, char s[], int b);
-void itoa(int n, char s[], int w);
-int strlen(char s[]);
-void reverse(char s[]);
+void itob(int n, char *s, int b);
+void itoa(int n, char *s, int w);
+int strlen(char *s);
+void reverse(char *s);
 
 int main()
 {
@@ -21,6 +21,6 @@ int main()
 		printf("%s\n", s);
 
 		ch = getchar();
-	} while (ch != '`');
+	} while (ch != EOF);
 	return 0;
 }

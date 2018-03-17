@@ -1,8 +1,8 @@
 #include <stdio.h>
 #define MAX 1000
 
-void expand(char s1[], char s2[]);
-void getline(char line[]);
+void expand(char *s1, char *s2);
+void getline(char *line);
 
 int main()
 {
