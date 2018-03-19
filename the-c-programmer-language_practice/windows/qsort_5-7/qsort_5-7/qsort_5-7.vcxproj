@@ -116,9 +116,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="alloc.cpp" />
+    <ClCompile Include="getline.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="qsort.cpp" />
     <ClCompile Include="readlines.cpp" />
+    <ClCompile Include="swap.cpp" />
     <ClCompile Include="writelines.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

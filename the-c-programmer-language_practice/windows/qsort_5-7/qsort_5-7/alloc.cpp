@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-#define MAXROM 500000
+#define MAXROM 5000000
 
-static int rom[MAXROM];
-static int *now = rom;
+static char rom[MAXROM];
+static char *now = rom;
 
-int* alloc(int n)
+char* alloc(int n)	//·ÖÅä´¢´æ¿Õ¼ä
 {
 	if (n > 0 && n < rom + MAXROM - now)
 	{
@@ -24,7 +24,7 @@ int* alloc(int n)
 	return 0;
 }
 
-void afree(int *p)
+void afree(char *p)	//ÊÍ·Å´¢´æ¿Õ¼ä
 {
 	if (p > rom && p < rom + MAXROM)
 	{
