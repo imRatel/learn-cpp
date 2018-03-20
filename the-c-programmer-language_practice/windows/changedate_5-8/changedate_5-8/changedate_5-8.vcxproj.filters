@@ -18,10 +18,10 @@
     <ClCompile Include="day_of_year.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="mouth_day.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="month_day.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
