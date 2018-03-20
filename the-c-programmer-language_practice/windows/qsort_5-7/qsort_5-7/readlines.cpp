@@ -2,7 +2,7 @@
 
 #define MAXLEN 1000
 
-char* alloc(int n);
+//char* alloc(int n);
 int getline(char *line,int maxlen);
 
 void strcpy(char *s1, char *s2)
@@ -16,18 +16,18 @@ void strcpy(char *s1, char *s2)
 	*s1 = '\0';
 }
 
-int readline(char *p[],int maxnline)
+int readline(char *p[],int maxnline,char alloc[])
 {
 	int len,nline = 0;
 	char line[MAXLEN];
 	char *pline;
+	char *palloc = alloc;
 	while ((len = getline(line,MAXLEN)) != 0)//记录当前字符串指针到指针数组中
 	{
 		*(line + len - 1) = '\0';
-		pline = alloc(len);
-		strcpy(pline, line);
-		p[nline] = pline;
-		
+		strcpy(palloc, line);
+		p[nline] = palloc;
+		palloc = palloc + len;
 
 		if (nline == maxnline - 1)
 		{
