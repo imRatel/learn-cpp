@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-int calender[][13] = { { 0,31,28,31,30,31,30,31,31,30,31,30,31 } ,
-						{ 0,31,29,31,30,31,30,31,31,30,31,30,31 } };
+int notleapyear[13] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
+int leapyear[13] = { 0,31,29,31,30,31,30,31,31,30,31,30,31 };
+int *calender[] = {notleapyear,leapyear};
 
 int day_of_year(int year, int month, int day)
 {
@@ -17,7 +18,7 @@ int day_of_year(int year, int month, int day)
 		printf("error: The month is too large!");
 		return 0;
 	}
-	if (day > calender[leap][month])
+	if (day > *((*calender+leap)+month))
 	{
 		printf("error: The day is too large!");
 		return 0;
@@ -26,7 +27,7 @@ int day_of_year(int year, int month, int day)
 	while (month > 0)
 	{
 		month = month - 1;
-		day =day + calender[leap][month];
+		day =day + *((*calender + leap) + month);
 	}
 
 	return day;

@@ -2,7 +2,7 @@
 
 #define YEARDAY 365
 
-extern int calender[][13];
+extern int *calender[];
 
 void month_day(int year, int day, int *pmonth, int *pday)
 {
@@ -23,10 +23,10 @@ void month_day(int year, int day, int *pmonth, int *pday)
 	while (day > 0)
 	{
 		n = n + 1;
-		day = day - calender[leap][n];
+		day = day - *((*calender + leap) + n);
 	}
 
-	day = day + calender[leap][n];
+	day = day + *((*calender + leap) + n);
 	
 	*pmonth = n;
 	*pday = day;
