@@ -26,4 +26,4 @@ int tail(int argc,char* argv[],char* line[],int nline)
 	}
 
 	return nline;
-}
+}              
