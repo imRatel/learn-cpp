@@ -11,7 +11,7 @@ int keytype(char *word, struct key tab[], int nkey)
 	int left = 0, right = nkey - 1,mid;
 	int i = 0;
 
-	while (left <= right)
+	while (left < right)
 	{
 		mid = (right + left) / 2;
 		if (strcmp(word, tab[mid].word) >= 0)
