@@ -1,18 +1,18 @@
 #include <stdio.h>
 #include <string.h>
 
-struct tree* treealloc();
+struct tword* treealloc();
 char* wordrom(char *s);
 
-struct tree
+struct tword
 {
 	char *word;
 	int num;
-	struct tree *lefttree;
-	struct tree *righttree;
+	struct tword *lefttree;
+	struct tword *righttree;
 };
 
-struct tree* addtree(struct tree *p, char *word)
+struct tword* addword(struct tword *p, char *word)
 {
 	int n;
 	if (p == NULL)
@@ -32,11 +32,11 @@ struct tree* addtree(struct tree *p, char *word)
 	}
 	else if (n < 0)
 	{
-		p->righttree = addtree(p->righttree, word);
+		p->righttree = addword(p->righttree, word);
 	}
 	else if (n > 0)
 	{
-		p->lefttree = addtree(p->lefttree, word);
+		p->lefttree = addword(p->lefttree, word);
 	}
 
 	return p;

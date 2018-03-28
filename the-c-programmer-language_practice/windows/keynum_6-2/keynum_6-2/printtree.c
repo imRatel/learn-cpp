@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-extern struct tree
+struct tword
 {
 	char *word;
 	int num;
-	struct tree *lefttree;
-	struct tree *righttree;
+	struct tword *lefttree;
+	struct tword *righttree;
 };
 
-void printtree(struct tree *p)
+void printtree(struct tword *p)
 {
 	if (p != NULL)
 	{

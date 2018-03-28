@@ -13,28 +13,43 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\6-2">
+      <UniqueIdentifier>{e6dd004d-f2bf-44e9-80a1-42474f89522f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Import/memory">
+      <UniqueIdentifier>{a81b9b5a-5f53-4047-8900-2d8d39a8aba9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mian.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="getword.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="addtree.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="printtree.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="printroot.c">
+      <Filter>源文件\6-2</Filter>
+    </ClCompile>
+    <ClCompile Include="rootalloc.c">
+      <Filter>源文件\6-2</Filter>
+    </ClCompile>
     <ClCompile Include="getch.c">
+      <Filter>源文件\Import/memory</Filter>
+    </ClCompile>
+    <ClCompile Include="getword.c">
+      <Filter>源文件\Import/memory</Filter>
+    </ClCompile>
+    <ClCompile Include="wordrom.c">
+      <Filter>源文件\Import/memory</Filter>
+    </ClCompile>
+    <ClCompile Include="addword.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="treealloc.c">
-      <Filter>源文件</Filter>
+      <Filter>源文件\Import/memory</Filter>
     </ClCompile>
-    <ClCompile Include="wordrom.c">
-      <Filter>源文件</Filter>
+    <ClCompile Include="addroot.c">
+      <Filter>源文件\6-2</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

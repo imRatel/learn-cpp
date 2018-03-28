@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct tree
+struct tword
 {
 	char *word;
 	int num;
-	struct tree *lefttree;
-	struct tree *righttree;
+	struct tword *lefttree;
+	struct tword *righttree;
 };
 
-struct tree* treealloc()
+struct tword* treealloc()
 {
-	return (struct tree*)malloc(sizeof(struct tree));
+	return (struct tword*)malloc(sizeof(struct tword));
 }

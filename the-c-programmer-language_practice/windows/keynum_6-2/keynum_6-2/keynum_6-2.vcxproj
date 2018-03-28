@@ -115,11 +115,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="addtree.c" />
+    <ClCompile Include="addword.c" />
+    <ClCompile Include="addroot.c" />
     <ClCompile Include="getch.c" />
     <ClCompile Include="getword.c" />
     <ClCompile Include="mian.c" />
+    <ClCompile Include="printroot.c" />
     <ClCompile Include="printtree.c" />
+    <ClCompile Include="rootalloc.c" />
     <ClCompile Include="treealloc.c" />
     <ClCompile Include="wordrom.c" />
   </ItemGroup>
