@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-struct tword* treealloc();
 char* wordrom(char *s);
 
 struct tword
@@ -17,7 +17,7 @@ struct tword* addword(struct tword *p, char *word)
 	int n;
 	if (p == NULL)
 	{
-		p = treealloc();
+		p = (struct tword*)malloc(sizeof(struct tword));
 		p->word = wordrom(word);
 		p->num = 1;
 		p->lefttree = p->righttree = NULL;

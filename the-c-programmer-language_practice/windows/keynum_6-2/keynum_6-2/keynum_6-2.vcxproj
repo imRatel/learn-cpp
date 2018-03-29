@@ -115,16 +115,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="addlines6-3.c" />
     <ClCompile Include="addword.c" />
-    <ClCompile Include="addroot.c" />
+    <ClCompile Include="addroot6-2.c" />
+    <ClCompile Include="addword_lines.c" />
+    <ClCompile Include="foundlines6-3.c" />
     <ClCompile Include="getch.c" />
     <ClCompile Include="getword.c" />
     <ClCompile Include="mian.c" />
-    <ClCompile Include="printroot.c" />
+    <ClCompile Include="printlines.c" />
+    <ClCompile Include="printroot6-2.c" />
     <ClCompile Include="printtree.c" />
-    <ClCompile Include="rootalloc.c" />
-    <ClCompile Include="treealloc.c" />
-    <ClCompile Include="wordrom.c" />
+    <ClCompile Include="printword_lines.c" />
+    <ClCompile Include="rom.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

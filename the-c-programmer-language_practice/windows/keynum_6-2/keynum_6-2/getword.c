@@ -10,8 +10,12 @@ int getword(char *word, int maxword)
 	int i = 0;
 
 	while (isspace(*word = ch = getch()))
-		;
-
+	{
+		if (ch == '\n')
+		{
+			return ch;
+		}
+	}
 	if (ch == '*' && *word == '/')
 	{
 		while (*word != '*' && (ch = getch()) != '/')

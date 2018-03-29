@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX 100
 
-struct troot* rootalloc();
 char* wordrom(char *s);
 struct tword* addword(struct tword *p, char *word);
 
@@ -29,7 +29,7 @@ struct troot* addroot(struct troot *p, char *word, int nroot)
 	char root[MAX];
 	if (p == NULL)
 	{
-		p = rootalloc();
+		p = (struct troot*)malloc(sizeof(struct troot));
 		strncpy_s(root, strlen(word) + 1, word, nroot);
 		p->roots = wordrom(root);
 		p->left = p->right = NULL;
