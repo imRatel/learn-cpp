@@ -12,8 +12,8 @@ void printtree(struct tword *p)
 {
 	if (p != NULL)
 	{
-		printtree(p->lefttree);
-		printf("%s :\t %d\n", p->word, p->num);
 		printtree(p->righttree);
+		printf("%d´Î\t %s\n",  p->num,p->word);
+		printtree(p->lefttree);
 	}
 }

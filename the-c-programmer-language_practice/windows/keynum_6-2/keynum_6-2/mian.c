@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <ctype.h>
 
-#define MAX 100
+#define MAX 1000
 
 struct tword_lines
 {
@@ -39,12 +40,15 @@ struct tlines* foundlines(struct tlines* p, int nlines);
 struct tlines* addlines(struct tlines* p, int nlines);
 struct tword_lines* addword_lines(struct tword_lines *p, char *word, int lines);
 void printword_lines(struct tword_lines *p);
+struct tword* addnum(struct tword *p, int num, char *word);
+struct tword* numsort(struct tword *p, struct tword *sortp);
 
 int main()
 {
 	char word[MAX];
 	int cond;
-	struct tword_lines* final = NULL;	
+	struct tword *final = NULL;	
+	struct tword *gradedown = NULL;
 	int nroot = 2;
 	int lines = 1;
 	
@@ -57,10 +61,12 @@ int main()
 
 		if (isalpha(cond) || cond == '_' || cond == '#')
 		{
-			final = addword_lines(final, word,lines);
+			final = addword(final, word);
 		}
 	}
-	printword_lines(final);
+
+	gradedown = numsort(final,gradedown);
+	printtree(gradedown);
 	
 	return 0;
 }

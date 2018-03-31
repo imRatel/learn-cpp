@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="addlines6-3.c" />
+    <ClCompile Include="addnum.c" />
     <ClCompile Include="addword.c" />
     <ClCompile Include="addroot6-2.c" />
     <ClCompile Include="addword_lines.c" />
@@ -128,6 +129,7 @@
     <ClCompile Include="printtree.c" />
     <ClCompile Include="printword_lines.c" />
     <ClCompile Include="rom.c" />
+    <ClCompile Include="numsort.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />

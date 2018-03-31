@@ -65,6 +65,12 @@
     <ClCompile Include="printlines.c">
       <Filter>源文件\6-3</Filter>
     </ClCompile>
+    <ClCompile Include="addnum.c">
+      <Filter>源文件\6-4</Filter>
+    </ClCompile>
+    <ClCompile Include="numsort.c">
+      <Filter>源文件\6-4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
