@@ -52,6 +52,7 @@ int main()
 			def = def + isdef();
 			*word = '\0';
 		}
+		pword = word;
 		if (def > 0 && *word != '\0')
 		{
 			pword = define(word);
@@ -60,7 +61,6 @@ int main()
 		{
 			stringcat(text,pword);
 		}
-		free(pword);
 	}
 
 	printf("%s", text);
