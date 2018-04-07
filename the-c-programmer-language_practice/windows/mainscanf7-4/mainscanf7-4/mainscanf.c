@@ -51,5 +51,5 @@ void mainscanf(char *fmt, ...)
 			return;
 		}
 	}
-
+	va_end(ap);
 }
