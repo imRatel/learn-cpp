@@ -11,10 +11,10 @@
 static int bottle[BOTTLENUM] = { 1,2,5,10,20,25,50,100 }; //各个容量瓶的容积
 static int valve[VALVENUM] = { 1,2,3,5,10,15,25 };	//各个移液管的容积
 
-int dilution(double concentration, int n = 0)
+int dilution(double concentration, int n = 0)//concentration为获取的目标浓度，n为稀释次数
 {
 	int state;
-	if (concentration > 5.0 && concentration < 15.0) //如果得到结果为范围内返回第一次成功
+	if (concentration >= 10 ) //如果得到结果为范围内返回第一次成功
 		return FIRST;
 	else if (n <= MAXTEST) //判断稀释次数是否小于最大稀释次数
 	{
